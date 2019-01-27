@@ -1,0 +1,36 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int get_positive_int(string prompt);
+
+int main(void)
+{
+
+    int height;
+    
+// Ask for height
+    do
+    {
+        printf ("Height: ");
+        height = get_int(" ");
+    }
+    while (height < 1 || height > 8);
+
+//build half pyramid
+    for (int rows = 0; rows < height; rows++)
+    {
+        for (int spaces = height - rows; spaces > 1; spaces--)
+        {
+            printf(" ");
+        }
+        for (int hash = 0; hash < rows + 1; hash++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }    
+} 
+
+
+
+
