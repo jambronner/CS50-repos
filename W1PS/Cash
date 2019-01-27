@@ -1,1 +1,38 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
 
+int main (void)
+{
+   // prompt user for change owed
+   
+    float owed;     
+        do
+        {           
+            owed = get_float("Change owed: ");
+        }
+        while (owed < 0);
+    
+        
+    int change = roundf(owed*100);
+    int clq = change % 25;
+    int cld = clq % 10;
+    int cln = cld % 5;
+        
+    // Is change divisible by 25
+    if (clq==0)
+        printf("%i\n", change / 25);
+    else
+        // Is change divisible by 10
+        if (cld==0)
+            printf("%i\n",(change/25)+(clq/10));
+            else
+                // Is change divisible by 5
+                if (cln==0)
+                    printf("%i\n",(change/25)+(clq/10)+(cld/5));
+                   // Remainder is change divisible by 1
+                    else 
+                        printf("%i\n",(change/25)+(clq/10)+(cld/5)+(cln)); 
+}
+
+  
